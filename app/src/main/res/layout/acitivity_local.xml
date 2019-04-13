@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_centerInParent="true">
+
+
+    <ImageButton
+        android:id="@+id/Forward"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/inainte" />
+    <ImageButton
+        android:id="@+id/Stanga"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/stanga"
+        android:layout_below="@+id/Forward"
+        android:layout_toLeftOf="@+id/Forward"
+        />
+
+    <ImageButton
+        android:id="@+id/Dreapta"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/dreapta"
+        android:layout_below="@+id/Forward"
+        android:layout_toRightOf="@+id/Forward"/>
+    <ImageButton
+        android:id="@+id/Inapoi"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/inapoi"
+        android:layout_below="@id/Stanga"
+        android:layout_toRightOf="@id/Stanga" />
+
+</RelativeLayout>
