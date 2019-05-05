@@ -33,14 +33,22 @@ public class MainActivity extends AppCompatActivity {
         txtUser = (EditText)findViewById(R.id.actLogin_user);
         txtPass = (EditText)findViewById(R.id.actLogin_pass);
 
-        ip="35.225.197.231";
-        pass="8Barosani";
-        us="echipa";
+//        ip="35.225.197.231";
+//        pass="8Barosani";
+//        us="echipa";
+//        db="ICARE";
+
+        //      localhost
+        //From the emulator, 127.0.0.1 refers to the emulator itself - not your local machine. You need to use ip 10.0.2.2, which is bridged to your local machine.
+        ip="10.0.2.2";  //
+        pass="root";
+        us="root";
         db="ICARE";
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 CheckLogin checkLogin = new CheckLogin();
                 checkLogin.execute("");
 
