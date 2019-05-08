@@ -4,16 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:gravity="center">
-<TextView
-    android:id="@+id/text"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Raportul de livrare catre Pacienti"
-    android:textSize="17sp"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Raportul de livrare catre Pacienti"
+        android:textSize="17sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
     <ScrollView
-android:id="@+id/ScrollView"
+        android:id="@+id/ScrollView"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_below="@+id/text"

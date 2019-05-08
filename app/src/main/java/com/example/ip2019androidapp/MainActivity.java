@@ -19,6 +19,7 @@ import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static boolean isLogged=false;
     Button btnLogin;
     EditText txtUser,txtPass;
 
@@ -51,15 +52,12 @@ public class MainActivity extends AppCompatActivity {
 
                 CheckLogin checkLogin = new CheckLogin();
                 checkLogin.execute("");
-
-
             }
         });
     }
 
     public class CheckLogin extends AsyncTask<String, String, String> {
         String z = "";
-        boolean isSucces = false;
 
         @Override
         protected String doInBackground(String... strings) {
@@ -85,16 +83,16 @@ public class MainActivity extends AppCompatActivity {
                         if(rs.next())
                         {
                             z= "Login Successful";
-                            isSucces=true;
+                            isLogged = true;
                             con.close();
                         }
                         else {
                             z="Invalid credentials";
-                            isSucces=false;
+                            isLogged = false;
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();
-                        isSucces=false;
+                        //isLogged =false;
                     }
 
                 }
@@ -105,9 +103,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             Toast.makeText(MainActivity.this,s,Toast.LENGTH_SHORT).show();
-            if(isSucces)
+            if(isLogged)
             {
                 Toast.makeText(MainActivity.this,"Login Successfull",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, LoggedActivity.class);
+                i.putExtra("drName",txtUser.getText().toString());
+                startActivity(i);
             }
         }
     }

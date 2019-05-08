@@ -35,7 +35,7 @@ public class MoveActivity extends AppCompatActivity {
         Intent newint = getIntent();
         address = newint.getStringExtra(DeviceList.EXTRA_ADDRESS); //receive the address of the bluetooth device
 
-        setContentView(R.layout.activity_move);
+        setContentView(R.layout.activity_local_move);
 
         //call the widgets
         Forward = (ImageButton) findViewById(R.id.Forward);
@@ -59,7 +59,7 @@ public class MoveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                stop();   //method to turn off
+                stop();
             }
         });
 
@@ -67,7 +67,7 @@ public class MoveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                moveLeft();   //method to turn off
+                moveLeft();
             }
         });
 
@@ -76,7 +76,7 @@ public class MoveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                moveRight();      //method to turn on
+                moveRight();
             }
         });
 
