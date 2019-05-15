@@ -34,6 +34,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/actLogin_user"
         android:layout_centerHorizontal="true"
+        android:maxLines="1"
+        android:singleLine="true"
         android:hint="Introdu username"
         android:layout_below="@id/txtAuth"/>
 
