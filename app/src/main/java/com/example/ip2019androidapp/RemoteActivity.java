@@ -14,23 +14,14 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class RemoteActivity extends AppCompatActivity {
-
-
-    String address = null;
-    private ProgressDialog progress;
-    BluetoothAdapter myBluetooth = null;
-    BluetoothSocket btSocket = null;
-    private boolean isBtConnected = false;
-    //SPP UUID. Look for it
-    static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-
+    BluetoothSocket btSocket = DeviceList.btSocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remote);
-        address = getIntent().getStringExtra(DeviceList.EXTRA_ADDRESS);
-        new ConnectBT().execute();
+
+
     }
 
     public void doVaruAutomat(View view) {
@@ -41,54 +32,4 @@ public class RemoteActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
     }
 
-
-    private class ConnectBT extends AsyncTask<Void, Void, Void>  // UI thread
-    {
-        private boolean ConnectSuccess = true; //if it's here, it's almost connected
-
-        @Override
-        protected void onPreExecute()
-        {
-            progress = ProgressDialog.show(RemoteActivity.this, "Connecting...", "Please wait!!!");  //show a progress dialog
-        }
-
-        @Override
-        protected Void doInBackground(Void... devices) //while the progress dialog is shown, the connection is done in background
-        {
-            try
-            {
-                if (btSocket == null || !isBtConnected)
-                {
-                    myBluetooth = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
-                    BluetoothDevice device = myBluetooth.getRemoteDevice(address);//connects to the device's address and checks if it's available
-                    btSocket = device.createInsecureRfcommSocketToServiceRecord(myUUID);//create a RFCOMM (SPP) connection
-                    BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
-                    btSocket.connect();//start connection
-                }
-            }
-            catch (IOException e)
-            {
-                ConnectSuccess = false;//if the try failed, you can check the exception here
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) //after the doInBackground, it checks if everything went fine
-        {
-            super.onPostExecute(result);
-
-            if (!ConnectSuccess)
-            {
-                msg("Connection Failed. Is it a SPP Bluetooth? Try again.");
-                finish();
-            }
-            else
-            {
-                msg("Connected.");
-                isBtConnected = true;
-            }
-            progress.dismiss();
-        }
-    }
 }

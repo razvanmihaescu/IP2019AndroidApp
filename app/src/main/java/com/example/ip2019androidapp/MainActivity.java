@@ -56,11 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
                 CheckLogin checkLogin = new CheckLogin();
                 checkLogin.execute("");
-
-                //just for testing on my smartphone
-//                Intent i = new Intent(MainActivity.this, LoggedActivity.class);
-//                i.putExtra("drName",txtUser.getText().toString());
-//                startActivity(i);
             }
         });
     }
