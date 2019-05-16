@@ -45,16 +45,10 @@
         android:background="@drawable/inapoi"
         android:layout_below="@id/Stanga"
         android:layout_toRightOf="@id/Stanga" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PT VARU"
-        android:onClick="doVARU"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Inapoi"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
         android:onClick="doStop"

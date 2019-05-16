@@ -71,20 +71,6 @@ public class MoveActivity extends AppCompatActivity {
 
     }
 
-    private void InitializeRobot()
-    {
-        if (btSocket!=null)
-        {
-            try
-            {
-                btSocket.getOutputStream().write("5".toString().getBytes());
-            }
-            catch (IOException e)
-            {
-                msg("Error");
-            }
-        }
-    }
     private void Disconnect()
     {
         if (btSocket!=null) //If the btSocket is busy
@@ -160,10 +146,6 @@ public class MoveActivity extends AppCompatActivity {
     private void msg(String s)
     {
         Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
-    }
-
-    public void doVARU(View view) {
-        InitializeRobot();
     }
 
     public void doStop(View view) {
