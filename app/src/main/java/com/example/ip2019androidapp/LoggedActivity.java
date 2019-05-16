@@ -12,12 +12,14 @@ public class LoggedActivity extends AppCompatActivity {
     Button btn_remote_control,btn_local_control,btn_BTconnect;
     TextView mTVTitle;
     public static String drName=null;
+    String address=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logged);
         drName = getIntent().getStringExtra("drName");
+        address = getIntent().getStringExtra(DeviceList.EXTRA_ADDRESS);
 
         mTVTitle = findViewById(R.id.actLoggedText);
         mTVTitle.setText(getString(R.string.drWelcome) + drName);
@@ -36,7 +38,15 @@ public class LoggedActivity extends AppCompatActivity {
 
     public void doLaunchLocalMoveActivity(View view) {
         Intent intent = new Intent(this,MoveActivity.class);
+        intent.putExtra(DeviceList.EXTRA_ADDRESS, address);
         startActivity(intent);
 
+
+    }
+
+    public void doLaunchRemoteMoveActivity(View view) {
+        Intent intent = new Intent(this,RemoteActivity.class);
+        intent.putExtra(DeviceList.EXTRA_ADDRESS, address);
+        startActivity(intent);
     }
 }

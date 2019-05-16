@@ -41,7 +41,8 @@
         android:text="Control Automat"
         android:layout_below="@+id/ChoiceText"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="210dp" />
+        android:layout_marginStart="210dp"
+        android:onClick="doLaunchRemoteMoveActivity"/>
 
     <Button
         android:id="@+id/btnBTconnect"
