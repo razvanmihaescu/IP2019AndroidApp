@@ -110,7 +110,7 @@ public class DeviceList extends AppCompatActivity {
             new ConnectBT().execute();
             // Make an intent to start next activity.
             Intent i = new Intent(DeviceList.this, LoggedActivity.class);
-
+            i.putExtra("drName", LoggedActivity.drName);
             //Change the activity.
 
             startActivity(i);
