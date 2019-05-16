@@ -4,6 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:gravity="center">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PT VARU"
+        android:onClick="doVaruAutomat"/>
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
@@ -15,7 +20,7 @@
     <ScrollView
         android:id="@+id/ScrollView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="350dp"
         android:layout_below="@+id/text"
         android:layout_marginTop="20dp"
         android:background="#c9f1ff">

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -44,6 +45,8 @@ public class MoveActivity extends AppCompatActivity {
         Right = (ImageButton)findViewById(R.id.Dreapta);
 
         new ConnectBT().execute(); //Call the class to connect
+
+
 
         //commands to be sent to bluetooth
         Forward.setOnClickListener(new View.OnClickListener()
@@ -83,6 +86,21 @@ public class MoveActivity extends AppCompatActivity {
 
     }
 
+    private void InitializeRobot()
+    {
+        if (btSocket!=null)
+        {
+            try
+            {
+                btSocket.getOutputStream().write("5".toString().getBytes());
+                Log.d("CHECK","Am trimis 5 la ROBOT");
+            }
+            catch (IOException e)
+            {
+                msg("Error");
+            }
+        }
+    }
     private void Disconnect()
     {
         if (btSocket!=null) //If the btSocket is busy
@@ -104,7 +122,7 @@ public class MoveActivity extends AppCompatActivity {
         {
             try
             {
-                btSocket.getOutputStream().write("0".toString().getBytes());
+                btSocket.getOutputStream().write("S".toString().getBytes());
             }
             catch (IOException e)
             {
@@ -160,17 +178,23 @@ public class MoveActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
     }
 
+    public void doVARU(View view) {
+        InitializeRobot();
+    }
 
-
-
-
-
-
-
-
-
-
-
+    public void doStop(View view) {
+        if (btSocket!=null)
+        {
+            try
+            {
+                btSocket.getOutputStream().write("0".toString().getBytes());
+            }
+            catch (IOException e)
+            {
+                msg("Error");
+            }
+        }
+    }
 
 
     private class ConnectBT extends AsyncTask<Void, Void, Void>  // UI thread

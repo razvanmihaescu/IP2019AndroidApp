@@ -25,12 +25,18 @@ public class LoggedActivity extends AppCompatActivity {
         btn_BTconnect=(Button) findViewById(R.id.btnBTconnect);
         btn_remote_control =(Button) findViewById(R.id.btnAutomat);
         btn_local_control = (Button) findViewById(R.id.btnLocal);
-        btn_local_control.setClickable(false);
-        btn_remote_control.setClickable(false);
+        btn_local_control.setClickable(true);
+        btn_remote_control.setClickable(true);
 
     }
     public void doLaunchBT_ConnectingProcedure(View view) {
     Intent intent = new Intent(this,DeviceList.class);
     startActivity(intent);
+    }
+
+    public void doLaunchLocalMoveActivity(View view) {
+        Intent intent = new Intent(this,MoveActivity.class);
+        startActivity(intent);
+
     }
 }
