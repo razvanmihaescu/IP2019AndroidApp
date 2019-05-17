@@ -27,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
     EditText txtUser, txtPass;
 
     Connection con;
-    String us, pass, db, ip;
+    public static final String DB_IP="35.225.197.231";
+    public static final String DB_USERNAME="echipa";
+    public static final String DB_PASSWORD="8Barosani";
+    public static final String DB_NAME="ICARE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         txtUser = (EditText) findViewById(R.id.actLogin_user);
         txtPass = (EditText) findViewById(R.id.actLogin_pass);
-
-        ip="35.225.197.231";
-        pass="8Barosani";
-        us="echipa";
-        db="ICARE";
 
         //      localhost
         //From the emulator, 127.0.0.1 refers to the emulator itself - not your local machine. You need to use ip 10.0.2.2, which is bridged to your local machine.
@@ -70,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             if (usernam.trim().equals("") || passw.trim().equals("")) {
                 z = "Please enter Username and Pass";
             } else {
-                con = connectionCreate(us, pass, db, ip);
+                con = connectionCreate(DB_USERNAME, DB_PASSWORD, DB_NAME, DB_IP);
                 if (con == null) {
                     z = "Check your internet";
                 } else {
