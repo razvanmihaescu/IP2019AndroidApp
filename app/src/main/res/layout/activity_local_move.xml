@@ -30,7 +30,6 @@
         android:layout_below="@+id/Forward"
         android:layout_toLeftOf="@+id/Forward"
         />
-
     <ImageButton
         android:id="@+id/Dreapta"
         android:layout_width="90dp"
@@ -45,7 +44,6 @@
         android:background="@drawable/inapoi"
         android:layout_below="@id/Stanga"
         android:layout_toRightOf="@id/Stanga" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,5 +51,6 @@
         android:layout_marginTop="23dp"
         android:onClick="doStop"
         android:text="STOP" />
+
 
 </RelativeLayout>
