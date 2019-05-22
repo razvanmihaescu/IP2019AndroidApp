@@ -47,7 +47,7 @@ public class MoveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                stop();
+                moveBack();
             }
         });
 
@@ -86,14 +86,14 @@ public class MoveActivity extends AppCompatActivity {
 
     }
 
-    private void stop()
+    private void moveBack()
     {
         if (btSocket!=null)
         {
             try
             {
-                btSocket.getOutputStream().write("S".toString().getBytes());
-            }
+                btSocket.getOutputStream().write("4".toString().getBytes());
+        }
             catch (IOException e)
             {
                 msg("Error");

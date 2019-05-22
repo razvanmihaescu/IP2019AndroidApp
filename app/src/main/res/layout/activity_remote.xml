@@ -9,14 +9,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inserare tabel"
-        android:onClick="doVaruAutomat"/>
+        android:onClick="doVaruAutomat"
+        android:layout_marginTop="650dp"/>
 
-    <Button
+  <!--  <Button
+        android:id="@+id/changeControl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
-        android:text="SChimba modul de control"
-        android:onClick="doChangeControl"/>
+        android:onClick="doChangeControl"
+        android:text="Schimba modul de control" /> -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Alta comanda?"
+        android:layout_marginLeft="300dp"
+        android:onClick="doSendAnotherCommand"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -27,13 +36,19 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="215dp"
         android:text="SEND COMMAND TO FILIPESCU"
         android:onClick="doSendCommandFilip"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="280dp"
         android:text="SEND COMMAND TO IONESCU"
         android:onClick="doSendCommandIon"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:text="SEND COMMAND TO LAST BED"
+        android:onClick="doSendCommandLast"/>
 </RelativeLayout>
