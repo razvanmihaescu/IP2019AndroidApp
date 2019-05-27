@@ -41,19 +41,23 @@ public class LoggedActivity extends AppCompatActivity {
     }
 
     public void doLaunchLocalMoveActivity(View view) {
-        Intent intent = new Intent(this,MoveActivity.class);
         if (btSocket!=null)
         {
             try
             {
                 btSocket.getOutputStream().write("5".toString().getBytes());
+                Intent intent = new Intent(this,MoveActivity.class);
+                startActivity(intent);
             }
             catch (IOException e)
             {
                 msg("Error");
             }
         }
-        startActivity(intent);
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Trebuie sa fii conectat la RoboCare !",Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void msg(String s)
@@ -62,18 +66,24 @@ public class LoggedActivity extends AppCompatActivity {
     }
 
     public void doLaunchRemoteMoveActivity(View view) {
-        Intent intent = new Intent(this,RemoteActivity.class);
+
         if (btSocket!=null)
         {
+
             try
             {
                 btSocket.getOutputStream().write("6".toString().getBytes());
+                Intent intent = new Intent(this,RemoteActivity.class);
+                startActivity(intent);
             }
             catch (IOException e)
             {
                 msg("Error");
             }
         }
-        startActivity(intent);
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Trebuie sa fii conectat la RoboCare !",Toast.LENGTH_SHORT).show();
+        }
     }
 }

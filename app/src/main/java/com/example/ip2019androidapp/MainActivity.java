@@ -96,9 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
             if (isLogged) {
-                Toast.makeText(MainActivity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(MainActivity.this, LoggedActivity.class);
                 i.putExtra("drName", txtUser.getText().toString());
                 startActivity(i);
