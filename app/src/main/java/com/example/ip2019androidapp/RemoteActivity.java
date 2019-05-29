@@ -49,7 +49,7 @@ public class RemoteActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doSencCommandPacient(p.getCale());
+                doSendCommandPacient(p.getCale());
                 Toast.makeText(getApplicationContext(), p.getCale(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -69,9 +69,10 @@ public class RemoteActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
     }
 
-    public void doSencCommandPacient(String cale)
+    public void doSendCommandPacient(String cale)
     {
         String path[]=new String[cale.length()];
+        int result=0;
 
         if (btSocket!=null)
         {
@@ -89,6 +90,15 @@ public class RemoteActivity extends AppCompatActivity {
                 path[0]="\0";
             }
         }
+        while(result==0) {
+            try {
+                result = btSocket.getInputStream().read();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        //if(result==9)
+        Log.d("RASPUNS",String.valueOf(result));
     }
 
     public class testComenzi extends AsyncTask<String, String, String> {
